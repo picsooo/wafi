@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wafi Company — Hébergements d'Exception à Timimoun, Sahara Algérien</title>
+  <meta name="description" content="Wafi Company Timimoun : 4 hébergements authentiques et 2 restaurants au cœur du Sahara algérien. Recommandé par Lonely Planet.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #a0613a;
+      --primary-light: #b8784f;
+      --secondary: #d4a574;
+      --accent: #e8c4a0;
+      --dark: #1a0f08;
+      --dark-mid: #3d2817;
+      --light: #faf8f5;
+      --cream: #f5efe8;
+      --white: #ffffff;
+      --text: #2d1f14;
+      --text-muted: #8a7565;
+      --gold: #c9a84c;
+      --shadow-sm: 0 2px 12px rgba(26,15,8,0.06);
+      --shadow-md: 0 8px 32px rgba(26,15,8,0.1);
+      --shadow-lg: 0 20px 60px rgba(26,15,8,0.15);
+      --shadow-xl: 0 32px 80px rgba(26,15,8,0.2);
+      --radius: 16px;
+      --radius-lg: 24px;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+
+    /* ===== REVEAL ANIMATIONS ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 1rem 0;
+      transition: all 0.5s var(--ease);
+    }
+    .navbar.scrolled {
+      background: rgba(250,248,245,0.9);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      padding: 0.5rem 0;
+      box-shadow: 0 1px 0 rgba(160,97,58,0.08);
+    }
+    .nav-inner {
+      max-width: 1320px; margin: 0 auto; padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.75rem;
+      text-decoration: none; z-index: 1001;
+    }
+    .nav-logo img {
+      height: 48px; width: 48px; border-radius: 12px;
+      transition: transform 0.4s var(--ease);
+    }
+    .nav-logo:hover img { transform: rotate(-3deg) scale(1.05); }
+    .nav-logo-text {
+      display: flex; flex-direction: column;
+    }
+    .nav-logo-text strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem; font-weight: 600; color: var(--dark);
+      line-height: 1.1; letter-spacing: -0.02em;
+    }
+    .navbar:not(.scrolled) .nav-logo-text strong { color: var(--white); }
+    .nav-logo-text small {
+      font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--text-muted); opacity: 0.8;
+    }
+    .navbar:not(.scrolled) .nav-logo-text small { color: rgba(255,255,255,0.7); }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none; color: var(--dark);
+      font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .navbar:not(.scrolled) .nav-links a { color: rgba(255,255,255,0.85); }
+    .navbar:not(.scrolled) .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -6px; left: 50%;
+      width: 0; height: 2px; background: var(--primary);
+      transition: all 0.3s var(--ease); transform: translateX(-50%);
+      border-radius: 2px;
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.65rem 1.5rem;
+      background: var(--primary); color: var(--white) !important;
+      border-radius: 100px; font-size: 0.82rem; font-weight: 600;
+      text-decoration: none; letter-spacing: 0.02em;
+      transition: all 0.4s var(--ease);
+      box-shadow: 0 4px 16px rgba(160,97,58,0.25);
+    }
+    .nav-cta-btn::after { display: none !important; }
+    .nav-cta-btn:hover {
+      background: var(--dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(26,15,8,0.3);
+    }
+
+    .hamburger {
+      display: none; background: none; border: none;
+      cursor: pointer; padding: 8px; z-index: 1001;
+      position: relative; width: 32px; height: 24px;
+    }
+    .hamburger span {
+      position: absolute; left: 0; width: 100%; height: 2px;
+      background: var(--dark); border-radius: 2px;
+      transition: all 0.4s var(--ease);
+    }
+    .navbar:not(.scrolled) .hamburger span { background: var(--white); }
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+    .hamburger span:nth-child(3) { bottom: 0; width: 60%; }
+    .hamburger.active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; transform: translateX(20px); }
+    .hamburger.active span:nth-child(3) { bottom: 50%; width: 100%; transform: translateY(50%) rotate(-45deg); }
+    .hamburger.active span { background: var(--dark) !important; }
+
+    .mobile-menu {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(250,248,245,0.98);
+      backdrop-filter: blur(32px);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 2rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.5s var(--ease);
+    }
+    .mobile-menu.open { opacity: 1; pointer-events: all; }
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 500;
+      color: var(--dark); text-decoration: none;
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: var(--primary); }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative; height: 100vh; min-height: 700px;
+      overflow: hidden; background: var(--dark);
+    }
+    .hero-slide {
+      position: absolute; inset: 0;
+      opacity: 0;
+      transition: opacity 1.2s ease, transform 6s linear;
+    }
+    .hero-slide.active {
+      opacity: 1; z-index: 1;
+    }
+    .hero-slide-bg {
+      position: absolute; inset: -20px;
+      background-size: cover; background-position: center;
+      transition: transform 7s linear;
+    }
+    .hero-slide.active .hero-slide-bg {
+      transform: scale(1.04);
+    }
+    .hero-slide-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(26,15,8,0.3) 0%,
+        rgba(26,15,8,0.15) 40%,
+        rgba(26,15,8,0.5) 80%,
+        rgba(26,15,8,0.75) 100%
+      );
+    }
+
+    .hero-content {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      z-index: 5; padding: 4rem 2rem 5rem;
+      max-width: 1320px; margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .hero-eyebrow-line {
+      width: 40px; height: 1px; background: var(--secondary);
+    }
+    .hero-eyebrow-text {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--secondary);
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 300; color: var(--white);
+      line-height: 0.95; letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .hero-title em {
+      font-style: italic; font-weight: 400;
+      color: var(--secondary);
+    }
+    .hero-subtitle {
+      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+      color: rgba(255,255,255,0.7); font-weight: 300;
+      max-width: 480px; margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.9rem 2rem;
+      background: var(--primary); color: var(--white);
+      border-radius: 100px; text-decoration: none;
+      font-size: 0.88rem; font-weight: 600;
+      transition: all 0.4s var(--ease);
+      border: none; cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: var(--white); color: var(--dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.85rem 2rem;
+      background: transparent; color: var(--white);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 100px; text-decoration: none;
+      font-size: 0.88rem; font-weight: 500;
+      transition: all 0.4s var(--ease);
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    /* Slide counter — bottom center */
+    .hero-controls {
+      position: absolute; bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      z-index: 10; display: flex; align-items: center; gap: 1.5rem;
+    }
+    .slide-counter {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; color: rgba(255,255,255,0.5);
+      display: flex; align-items: baseline; gap: 0.25rem;
+    }
+    .slide-counter .current-num {
+      font-size: 1.5rem; font-weight: 600; color: var(--white);
+      line-height: 1;
+    }
+    .slide-progress-wrap {
+      width: 120px; height: 3px;
+      background: rgba(255,255,255,0.15); border-radius: 3px;
+      overflow: hidden;
+    }
+    .slide-progress {
+      width: 25%; height: 100%;
+      background: var(--secondary);
+      border-radius: 3px;
+      transition: width 0.5s var(--ease);
+    }
+
+    /* Arrows — left & right of screen */
+    .hero-arrow {
+      position: absolute; top: 50%; z-index: 10;
+      transform: translateY(-50%);
+      width: 56px; height: 56px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      color: var(--white); font-size: 1.4rem;
+      cursor: pointer; transition: all 0.3s var(--ease);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hero-arrow:hover {
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.45);
+      transform: translateY(-50%) scale(1.08);
+    }
+    .hero-arrow--prev { left: 2rem; }
+    .hero-arrow--next { right: 2rem; }
+
+    /* ===== MARQUEE ===== */
+    .marquee-section {
+      background: var(--dark); padding: 1rem 0;
+      overflow: hidden; border-bottom: 1px solid rgba(160,97,58,0.15);
+    }
+    .marquee-track {
+      display: flex; gap: 3rem;
+      animation: marquee 30s linear infinite;
+      width: max-content;
+    }
+    .marquee-item {
+      display: flex; align-items: center; gap: 0.75rem;
+      white-space: nowrap; color: rgba(255,255,255,0.4);
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .marquee-dot {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: var(--primary);
+    }
+    @keyframes marquee {
+      to { transform: translateX(-50%); }
+    }
+
+    /* ===== SECTIONS ===== */
+    .section { padding: 7rem 2rem; }
+    .section-sm { padding: 5rem 2rem; }
+    .container { max-width: 1320px; margin: 0 auto; }
+
+    .section-header { margin-bottom: 4rem; }
+    .section-header.center { text-align: center; }
+    .section-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+    .section-eyebrow-line {
+      width: 32px; height: 1px; background: var(--primary);
+    }
+    .section-eyebrow-text {
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--primary);
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      font-weight: 400; line-height: 1.1;
+      letter-spacing: -0.02em; color: var(--dark);
+      margin-bottom: 1rem;
+    }
+    .section-title em { font-style: italic; color: var(--primary); }
+    .section-desc {
+      font-size: 1rem; color: var(--text-muted);
+      max-width: 520px; line-height: 1.7;
+    }
+    .section-header.center .section-desc { margin: 0 auto; }
+
+    /* ===== HÉBERGEMENTS ===== */
+    .heb-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    .heb-card {
+      position: relative; border-radius: var(--radius-lg);
+      overflow: hidden; background: var(--white);
+      transition: all 0.5s var(--ease);
+      cursor: pointer;
+      group: true;
+    }
+    .heb-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+    }
+    .heb-card-visual {
+      position: relative; height: 280px; overflow: hidden;
+    }
+    .heb-card-visual img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.8s var(--ease);
+    }
+    .heb-card:hover .heb-card-visual img { transform: scale(1.08); }
+    .heb-card-visual::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(0deg, rgba(26,15,8,0.5) 0%, transparent 50%);
+      transition: opacity 0.4s;
+    }
+    .heb-card-rating {
+      position: absolute; top: 1rem; right: 1rem; z-index: 2;
+      display: flex; align-items: center; gap: 0.3rem;
+      padding: 0.35rem 0.7rem;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 100px;
+      font-size: 0.75rem; font-weight: 600; color: var(--white);
+    }
+    .heb-card-rating svg { width: 12px; height: 12px; fill: #f0a500; }
+    .heb-card-price-tag {
+      position: absolute; bottom: 1rem; left: 1rem; z-index: 2;
+      padding: 0.4rem 0.9rem;
+      background: var(--white); border-radius: 100px;
+      font-size: 0.78rem; font-weight: 600; color: var(--dark);
+    }
+    .heb-card-body {
+      padding: 1.5rem;
+    }
+    .heb-card-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 600;
+      margin-bottom: 0.5rem; color: var(--dark);
+    }
+    .heb-card-body p {
+      font-size: 0.88rem; color: var(--text-muted);
+      line-height: 1.6; margin-bottom: 1.25rem;
+    }
+    .btn-book {
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      width: 100%; padding: 0.8rem;
+      background: var(--dark); color: var(--white);
+      border: none; border-radius: 12px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      transition: all 0.4s var(--ease);
+    }
+    .btn-book:hover { background: var(--primary); }
+    .btn-book svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* ===== RESTAURANTS ===== */
+    .section-resto { background: var(--cream); }
+    .resto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .resto-card {
+      display: flex; border-radius: var(--radius-lg);
+      overflow: hidden; background: var(--white);
+      transition: all 0.5s var(--ease);
+    }
+    .resto-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .resto-card-img {
+      width: 200px; min-height: 220px; flex-shrink: 0;
+      overflow: hidden;
+    }
+    .resto-card-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s var(--ease);
+    }
+    .resto-card:hover .resto-card-img img { transform: scale(1.06); }
+    .resto-card-body {
+      padding: 2rem; display: flex; flex-direction: column; justify-content: center;
+    }
+    .resto-card-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-weight: 600; margin-bottom: 0.6rem;
+    }
+    .resto-card-body p {
+      font-size: 0.9rem; color: var(--text-muted);
+      line-height: 1.6; margin-bottom: 1rem;
+    }
+    .resto-price-tag {
+      display: inline-flex; align-items: center;
+      padding: 0.35rem 0.9rem;
+      background: var(--cream); border-radius: 100px;
+      font-size: 0.8rem; font-weight: 600; color: var(--primary);
+      width: fit-content;
+    }
+
+    /* ===== ACTIVITÉS ===== */
+    .act-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .act-card {
+      position: relative; border-radius: var(--radius-lg);
+      overflow: hidden; background: var(--white);
+      transition: all 0.5s var(--ease);
+    }
+    .act-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .act-card-img {
+      position: relative; height: 180px; overflow: hidden;
+    }
+    .act-card-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.7s var(--ease);
+    }
+    .act-card:hover .act-card-img img { transform: scale(1.08); }
+    .act-card-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(0deg, rgba(26,15,8,0.45) 0%, transparent 60%);
+    }
+    .act-card-img .act-label {
+      position: absolute; bottom: 1rem; left: 1rem; z-index: 2;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 600; color: var(--white);
+    }
+    .act-card-body {
+      padding: 1.25rem;
+    }
+    .act-card-body p {
+      font-size: 0.85rem; color: var(--text-muted); line-height: 1.6;
+    }
+
+    /* ===== AVIS / TESTIMONIALS ===== */
+    .section-avis { background: var(--dark); color: var(--white); overflow: hidden; }
+    .section-avis .section-title { color: var(--white); }
+    .section-avis .section-title em { color: var(--secondary); }
+    .section-avis .section-desc { color: rgba(255,255,255,0.5); }
+    .section-avis .section-eyebrow-text { color: var(--secondary); }
+    .section-avis .section-eyebrow-line { background: var(--secondary); }
+
+    .avis-scroll {
+      display: flex; gap: 1.5rem;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      -ms-overflow-style: none; scrollbar-width: none;
+      padding-bottom: 1rem;
+    }
+    .avis-scroll::-webkit-scrollbar { display: none; }
+    .avis-card {
+      flex: 0 0 380px; scroll-snap-align: start;
+      padding: 2.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(8px);
+      transition: all 0.4s var(--ease);
+    }
+    .avis-card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.12);
+      transform: translateY(-3px);
+    }
+    .avis-stars {
+      display: flex; gap: 3px; margin-bottom: 1.5rem;
+    }
+    .avis-stars svg { width: 16px; height: 16px; fill: #f0a500; }
+    .avis-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-style: italic;
+      font-weight: 400; line-height: 1.6;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 1.5rem;
+    }
+    .avis-author-row { display: flex; align-items: center; gap: 0.75rem; }
+    .avis-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 600; font-size: 0.85rem; color: var(--white);
+    }
+    .avis-author-info strong {
+      display: block; font-size: 0.9rem; color: var(--white);
+    }
+    .avis-author-info span {
+      font-size: 0.78rem; color: rgba(255,255,255,0.4);
+    }
+
+    .lp-badge {
+      margin-top: 4rem;
+      display: flex; align-items: center; justify-content: center;
+      gap: 3rem; flex-wrap: wrap;
+    }
+    .lp-item {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 1rem 1.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 100px;
+    }
+    .lp-item svg { width: 20px; height: 20px; fill: var(--secondary); }
+    .lp-item span { font-size: 0.85rem; color: rgba(255,255,255,0.7); font-weight: 500; }
+    .lp-item strong { color: var(--secondary); }
+
+    /* ===== PHOTO STRIP ===== */
+    .photo-strip {
+      padding: 0; overflow: hidden;
+    }
+    .photo-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 220px;
+      gap: 4px;
+    }
+    .photo-strip-tall { grid-row: span 2; }
+    .photo-strip-item {
+      overflow: hidden; position: relative;
+    }
+    .photo-strip-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.7s var(--ease);
+    }
+    .photo-strip-item:hover img { transform: scale(1.06); }
+    @media (max-width: 768px) {
+      .photo-strip-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 180px;
+      }
+    }
+    @media (max-width: 480px) {
+      .photo-strip-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 150px;
+      }
+    }
+
+    /* ===== CTA ===== */
+    .section-cta {
+      position: relative;
+      padding: 8rem 2rem;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+      text-align: center; overflow: hidden;
+    }
+    .section-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(212,165,116,0.15) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 80%, rgba(232,196,160,0.1) 0%, transparent 50%);
+    }
+    .cta-content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+    .cta-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 400; color: var(--white);
+      line-height: 1.1; margin-bottom: 1.25rem;
+    }
+    .cta-content h2 em { font-style: italic; color: var(--secondary); }
+    .cta-content p {
+      font-size: 1.05rem; color: rgba(255,255,255,0.7);
+      margin-bottom: 2.5rem; line-height: 1.7;
+    }
+    .btn-wa-big {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      padding: 1.1rem 2.8rem;
+      background: #25D366; color: var(--white);
+      border-radius: 100px; text-decoration: none;
+      font-size: 1.05rem; font-weight: 600;
+      transition: all 0.4s var(--ease);
+      box-shadow: 0 8px 32px rgba(37,211,102,0.3);
+    }
+    .btn-wa-big:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(37,211,102,0.4);
+    }
+    .btn-wa-big svg { width: 22px; height: 22px; fill: currentColor; }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--dark); padding: 4rem 2rem 2rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .footer-inner {
+      max-width: 1320px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer-brand-col img {
+      height: 56px; width: 56px; border-radius: 14px;
+      margin-bottom: 1rem;
+    }
+    .footer-brand-col p {
+      font-size: 0.88rem; line-height: 1.7; margin-bottom: 1.5rem;
+      max-width: 280px;
+    }
+    .footer h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 600; color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .footer ul { list-style: none; }
+    .footer ul li { margin-bottom: 0.5rem; }
+    .footer ul a {
+      color: rgba(255,255,255,0.5); text-decoration: none;
+      font-size: 0.85rem; transition: color 0.3s;
+    }
+    .footer ul a:hover { color: var(--secondary); }
+    .footer-bottom {
+      max-width: 1320px; margin: 3rem auto 0;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-bottom p { font-size: 0.78rem; }
+    .footer-bottom a { color: var(--secondary); text-decoration: none; }
+
+    /* ===== FLOATING WHATSAPP ===== */
+    .float-wa {
+      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      z-index: 999; width: 60px; height: 60px;
+      background: #25D366; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.35);
+      transition: all 0.4s var(--ease);
+      text-decoration: none;
+    }
+    .float-wa::before {
+      content: ''; position: absolute; inset: -4px;
+      border-radius: 50%; border: 2px solid rgba(37,211,102,0.3);
+      animation: wa-pulse 2s ease-out infinite;
+    }
+    .float-wa:hover { transform: scale(1.1); }
+    .float-wa svg { width: 30px; height: 30px; fill: var(--white); }
+    @keyframes wa-pulse {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1100px) {
+      .heb-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .section { padding: 4.5rem 1.25rem; }
+      .heb-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .resto-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+      .resto-card { flex-direction: column; }
+      .resto-card-img { width: 100%; min-height: 200px; }
+      .act-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .avis-card { flex: 0 0 300px; padding: 2rem; }
+      .hero-controls { bottom: 1.5rem; }
+      .hero-arrow { width: 44px; height: 44px; font-size: 1.1rem; }
+      .hero-arrow--prev { left: 1rem; }
+      .hero-arrow--next { right: 1rem; }
+      .hero-content { padding: 3rem 1.5rem 4rem; }
+      .footer-inner { grid-template-columns: 1fr; text-align: center; }
+      .footer-brand-col p { max-width: 100%; }
+      .footer-bottom { justify-content: center; text-align: center; }
+      .lp-badge { flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 480px) {
+      .heb-card-visual { height: 220px; }
+      .hero-title { font-size: 2.5rem; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="logo.jpg" alt="Dar El Wafi">
+        <div class="nav-logo-text">
+          <strong>Wafi Company</strong>
+          <small>Timimoun, Sahara</small>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#hebergements">Hébergements</a></li>
+        <li><a href="#restaurants">Restaurants</a></li>
+        <li><a href="#activites">Activités</a></li>
+        <li><a href="#avis">Avis</a></li>
+        <li><a href="#contact" class="nav-cta-btn">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.61l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.4 0-4.616-.83-6.365-2.218l-.446-.361-3.026 1.014 1.014-3.026-.361-.446A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          WhatsApp
+        </a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#hebergements" data-close>Hébergements</a>
+    <a href="#restaurants" data-close>Restaurants</a>
+    <a href="#activites" data-close>Activités</a>
+    <a href="#avis" data-close>Avis</a>
+    <a href="#contact" data-close>Contact</a>
+  </div>
+
+  <!-- HERO SLIDER -->
+  <section class="hero" id="hero">
+    <div class="hero-slide slide-0 active">
+      <div class="hero-slide-bg" style="background-image:url('https://images.unsplash.com/photo-1682879654264-5f2a52e1ea0f?auto=format&fit=crop&w=1920&q=80')"></div>
+      <div class="hero-slide-overlay"></div>
+    </div>
+    <div class="hero-slide slide-1">
+      <div class="hero-slide-bg" style="background-image:url('https://images.unsplash.com/photo-1660061540551-0955e8ec5b8b?auto=format&fit=crop&w=1920&q=80')"></div>
+      <div class="hero-slide-overlay"></div>
+    </div>
+    <div class="hero-slide slide-2">
+      <div class="hero-slide-bg" style="background-image:url('https://images.unsplash.com/photo-1750859876327-f9360664c362?auto=format&fit=crop&w=1920&q=80')"></div>
+      <div class="hero-slide-overlay"></div>
+    </div>
+    <div class="hero-slide slide-3">
+      <div class="hero-slide-bg" style="background-image:url('https://images.unsplash.com/photo-1683138155815-d7edd806d8a3?auto=format&fit=crop&w=1920&q=80')"></div>
+      <div class="hero-slide-overlay"></div>
+    </div>
+
+    <div class="hero-content" id="heroContent">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-line"></span>
+        <span class="hero-eyebrow-text" id="heroEyebrow">Hébergement de charme</span>
+      </div>
+      <h1 class="hero-title" id="heroTitle">Dar El <em>Hakim</em></h1>
+      <p class="hero-subtitle" id="heroSubtitle">Tradition, authenticité, confort et bien-être au cœur de Timimoun.</p>
+      <div class="hero-actions">
+        <a href="#hebergements" class="btn-primary">Découvrir &rarr;</a>
+        <a href="https://wa.me/213676088160?text=Bonjour%20Wafi%20Company%2C%20je%20souhaite%20des%20informations.%20Merci%20!" class="btn-outline" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.61l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+          Réserver
+        </a>
+      </div>
+    </div>
+
+    <!-- Arrows left/right -->
+    <button class="hero-arrow hero-arrow--prev" id="prevSlide" aria-label="Précédent">&#8249;</button>
+    <button class="hero-arrow hero-arrow--next" id="nextSlide" aria-label="Suivant">&#8250;</button>
+
+    <!-- Counter + progress bar bottom center -->
+    <div class="hero-controls">
+      <div class="slide-counter">
+        <span class="current-num" id="slideNum">01</span>/ 04
+      </div>
+      <div class="slide-progress-wrap">
+        <div class="slide-progress" id="slideProgress" style="width:25%"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span class="marquee-item"><span class="marquee-dot"></span>Recommandé par Lonely Planet</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Timimoun, Gourara, Sahara</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>4 Hébergements d'Exception</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>2 Restaurants Authentiques</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>4.8/5 — 291 Avis Vérifiés</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Fondé par Azzedine & Farida Messai</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Recommandé par Lonely Planet</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Timimoun, Gourara, Sahara</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>4 Hébergements d'Exception</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>2 Restaurants Authentiques</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>4.8/5 — 291 Avis Vérifiés</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Fondé par Azzedine & Farida Messai</span>
+    </div>
+  </div>
+
+  <!-- HÉBERGEMENTS -->
+  <section class="section" id="hebergements">
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-eyebrow" style="justify-content:center;">
+          <span class="section-eyebrow-line"></span>
+          <span class="section-eyebrow-text">Nos Maisons</span>
+          <span class="section-eyebrow-line"></span>
+        </div>
+        <h2 class="section-title">Hébergements <em>d'Exception</em></h2>
+        <p class="section-desc">Quatre adresses uniques au cœur du Sahara algérien, chacune avec son caractère, son histoire et son âme.</p>
+      </div>
+
+      <div class="heb-grid">
+
+        <div class="heb-card reveal reveal-delay-1">
+          <div class="heb-card-visual">
+            <img src="https://waficompany.com/wp-content/uploads/2025/11/Dar-El-Hakim-chambre.jpg" alt="Dar El Hakim" loading="lazy">
+            <div class="heb-card-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.8</div>
+            <div class="heb-card-price-tag">À partir de 9 000 DA</div>
+          </div>
+          <div class="heb-card-body">
+            <h3>Dar El Hakim</h3>
+            <p>Notre résidence allie tradition, authenticité, confort et bien-être.</p>
+            <a href="https://wa.me/213676088160?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20%C3%A0%20Dar%20El%20Hakim.%20Merci%20!" class="btn-book" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.61l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.4 0-4.616-.83-6.365-2.218l-.446-.361-3.026 1.014 1.014-3.026-.361-.446A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              Réserver via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="heb-card reveal reveal-delay-2">
+          <div class="heb-card-visual">
+            <img src="https://waficompany.com/wp-content/uploads/2026/07/Dar-el-wafi-chambre-8000da-768x1024.jpeg" alt="Dar El Wafi" loading="lazy">
+            <div class="heb-card-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.8</div>
+            <div class="heb-card-price-tag">À partir de 8 000 DA</div>
+          </div>
+          <div class="heb-card-body">
+            <h3>Dar El Wafi</h3>
+            <p>Architecture néo-soudanaise, vous y serez comme chez vous.</p>
+            <a href="https://wa.me/213676088160?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20%C3%A0%20Dar%20El%20Wafi.%20Merci%20!" class="btn-book" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.61l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.4 0-4.616-.83-6.365-2.218l-.446-.361-3.026 1.014 1.014-3.026-.361-.446A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              Réserver via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="heb-card reveal reveal-delay-3">
+          <div class="heb-card-visual">
+            <img src="https://waficompany.com/wp-content/uploads/2026/03/Dar-Tin-Hinan-chambre.jpeg" alt="Dar Tin Hinan" loading="lazy">
+            <div class="heb-card-price-tag">À partir de 12 000 DA</div>
+          </div>
+          <div class="heb-card-body">
+            <h3>Dar Tin Hinan</h3>
+            <p>Le Petit Ksar de l'Oasis Rouge, hommage à la Reine des Touaregs.</p>
+            <a href="https://wa.me/213676088160?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20%C3%A0%20Dar%20Tin%20Hinan.%20Merci%20!" class="btn-book" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.61l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.4 0-4.616-.83-6.365-2.218l-.446-.361-3.026 1.014 1.014-3.026-.361-.446A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              Réserver via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="heb-card reveal reveal-delay-4">
+          <div class="heb-card-visual">
+            <img src="https://images.unsplash.com/photo-1683138155815-d7edd806d8a3?auto=format&fit=crop&w=600&q=80" alt="Wafi Bivouac — Nuits étoilées dans le Sahara" loading="lazy">
+            <div class="heb-card-price-tag">À partir de 3 000 DA</div>
+          </div>
+          <div class="heb-card-body">
+            <h3>Wafi Bivouac</h3>
+            <p>Au cœur du Ksar de Lichta, vivez des nuits sous un ciel étoilé.</p>
+            <a href="https://wa.me/213676088160?text=Bonjour%2C%20je%20souhaite%20r%C3%A9server%20au%20Wafi%20Bivouac.%20Merci%20!" class="btn-book" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.61l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.4 0-4.616-.83-6.365-2.218l-.446-.361-3.026 1.014 1.014-3.026-.361-.446A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              Réserver via WhatsApp
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RESTAURANTS -->
+  <section class="section section-resto" id="restaurants">
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-eyebrow" style="justify-content:center;">
+          <span class="section-eyebrow-line"></span>
+          <span class="section-eyebrow-text">Gastronomie</span>
+          <span class="section-eyebrow-line"></span>
+        </div>
+        <h2 class="section-title">Nos <em>Restaurants</em></h2>
+        <p class="section-desc">Les saveurs authentiques du Sahara, préparées avec amour et générosité familiale.</p>
+      </div>
+
+      <div class="resto-grid">
+        <div class="resto-card reveal reveal-delay-1">
+          <div class="resto-card-img">
+            <img src="https://images.unsplash.com/photo-1661083098412-054431ab7112?auto=format&fit=crop&w=600&q=80" alt="Wafi Restauration Traditionnelle — Tagine et spécialités sahariennes" loading="lazy">
+          </div>
+          <div class="resto-card-body">
+            <h3>Wafi Restauration Traditionnelle</h3>
+            <p>Saveurs authentiques du Sahara : Merdoum, Tandjia, brochettes et spécialités du Gourara.</p>
+            <span class="resto-price-tag">À partir de 2 500 DA</span>
+          </div>
+        </div>
+        <div class="resto-card reveal reveal-delay-2">
+          <div class="resto-card-img">
+            <img src="https://images.unsplash.com/photo-1519624014191-508652cbd7b5?auto=format&fit=crop&w=600&q=80" alt="La Table de Nadia — Cuisine familiale traditionnelle" loading="lazy">
+          </div>
+          <div class="resto-card-body">
+            <h3>La Table de Nadia</h3>
+            <p>Cuisine généreuse et savoureuse avec les recettes de famille transmises de génération en génération.</p>
+            <span class="resto-price-tag">À partir de 2 500 DA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVITÉS -->
+  <section class="section" id="activites">
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-eyebrow" style="justify-content:center;">
+          <span class="section-eyebrow-line"></span>
+          <span class="section-eyebrow-text">Expériences</span>
+          <span class="section-eyebrow-line"></span>
+        </div>
+        <h2 class="section-title">Activités & <em>Aventures</em></h2>
+        <p class="section-desc">Des expériences inoubliables au cœur du Grand Sahara algérien.</p>
+      </div>
+
+      <div class="act-grid">
+        <div class="act-card reveal reveal-delay-1">
+          <div class="act-card-img">
+            <img src="https://images.unsplash.com/photo-1461237439866-5a557710c921?auto=format&fit=crop&w=600&q=80" alt="Balade à dromadaire dans le Sahara" loading="lazy">
+            <span class="act-label">Balades à dromadaire</span>
+          </div>
+          <div class="act-card-body">
+            <p>Vivez une aventure unique à dos de dromadaire à travers les dunes dorées du Grand Erg.</p>
+          </div>
+        </div>
+        <div class="act-card reveal reveal-delay-2">
+          <div class="act-card-img">
+            <img src="https://images.unsplash.com/photo-1559169690-131bab5594a4?auto=format&fit=crop&w=600&q=80" alt="Sortie en 4x4 dans le désert" loading="lazy">
+            <span class="act-label">Sorties en 4x4</span>
+          </div>
+          <div class="act-card-body">
+            <p>Grand Erg occidental, Petit Tassili, Tinerkouk et les oasis cachées du Sahara.</p>
+          </div>
+        </div>
+        <div class="act-card reveal reveal-delay-3">
+          <div class="act-card-img">
+            <img src="https://images.unsplash.com/photo-1527419105721-af1f23c86dec?auto=format&fit=crop&w=600&q=80" alt="Soirée musicale sous les étoiles du Sahara" loading="lazy">
+            <span class="act-label">Soirées Ahellil</span>
+          </div>
+          <div class="act-card-body">
+            <p>Musique et danse traditionnelles au cœur de la nuit saharienne étoilée.</p>
+          </div>
+        </div>
+        <div class="act-card reveal reveal-delay-1">
+          <div class="act-card-img">
+            <img src="https://images.unsplash.com/photo-1697666326566-a405766d995f?auto=format&fit=crop&w=600&q=80" alt="Visite guidée des Ksours de Timimoun" loading="lazy">
+            <span class="act-label">Visites guidées</span>
+          </div>
+          <div class="act-card-body">
+            <p>Explorez les Ksours, Foggaras, portes de Timimoun et greniers fortifiés ancestraux.</p>
+          </div>
+        </div>
+        <div class="act-card reveal reveal-delay-2">
+          <div class="act-card-img">
+            <img src="https://images.unsplash.com/photo-1750859876327-f9360664c362?auto=format&fit=crop&w=600&q=80" alt="Luge sur les dunes de sable" loading="lazy">
+            <span class="act-label">Luge & Skimboard</span>
+          </div>
+          <div class="act-card-body">
+            <p>Sensations fortes et adrénaline sur les dunes de sable du Sahara.</p>
+          </div>
+        </div>
+        <div class="act-card reveal reveal-delay-3">
+          <div class="act-card-img">
+            <img src="https://images.unsplash.com/photo-1613169660691-f0e9603b74d0?auto=format&fit=crop&w=600&q=80" alt="Circuit de Quad dans le désert" loading="lazy">
+            <span class="act-label">Circuit de Quad</span>
+          </div>
+          <div class="act-card-body">
+            <p>Excursions à travers les dunes du Sahara sur circuit sécurisé.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMMERSIVE PHOTO STRIP -->
+  <section class="photo-strip reveal">
+    <div class="photo-strip-grid">
+      <div class="photo-strip-item photo-strip-tall">
+        <img src="https://images.unsplash.com/photo-1762538190509-140fb21fea20?auto=format&fit=crop&w=800&q=80" alt="Caravane de dromadaires dans le Sahara" loading="lazy">
+      </div>
+      <div class="photo-strip-item">
+        <img src="https://waficompany.com/wp-content/uploads/2025/11/Dar-El-Hakim-chambre.jpg" alt="Intérieur Dar El Hakim" loading="lazy">
+      </div>
+      <div class="photo-strip-item">
+        <img src="https://images.unsplash.com/photo-1779032369221-5a0861a3534e?auto=format&fit=crop&w=600&q=80" alt="Caravane dans les dunes" loading="lazy">
+      </div>
+      <div class="photo-strip-item photo-strip-tall">
+        <img src="https://waficompany.com/wp-content/uploads/2026/03/Dar-Tin-Hinan-chambre.jpeg" alt="Chambre Dar Tin Hinan" loading="lazy">
+      </div>
+      <div class="photo-strip-item">
+        <img src="https://images.unsplash.com/photo-1682370207954-c8a9cccaabb4?auto=format&fit=crop&w=600&q=80" alt="Cuisine traditionnelle du Sahara" loading="lazy">
+      </div>
+      <div class="photo-strip-item">
+        <img src="https://waficompany.com/wp-content/uploads/2026/07/Dar-el-wafi-chambre-8000da-768x1024.jpeg" alt="Chambre Dar El Wafi" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- AVIS -->
+  <section class="section section-avis" id="avis">
+    <div class="container">
+      <div class="section-header center reveal">
+        <div class="section-eyebrow" style="justify-content:center;">
+          <span class="section-eyebrow-line"></span>
+          <span class="section-eyebrow-text">Témoignages</span>
+          <span class="section-eyebrow-line"></span>
+        </div>
+        <h2 class="section-title">Ce que disent <em>nos hôtes</em></h2>
+        <p class="section-desc">Des expériences humaines et chaleureuses qui marquent à jamais.</p>
+      </div>
+
+      <div class="avis-scroll reveal">
+
+        <div class="avis-card">
+          <div class="avis-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="avis-text">"Hôtes excessivement polis, lieu impeccable, vue sur le désert à couper le souffle. Une expérience absolument magique."</p>
+          <div class="avis-author-row">
+            <div class="avis-avatar">A</div>
+            <div class="avis-author-info"><strong>Abu H.</strong><span>Voyageur</span></div>
+          </div>
+        </div>
+
+        <div class="avis-card">
+          <div class="avis-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="avis-text">"On se sent à la maison. Tout le monde est exceptionnellement serviable et gentil. Un vrai havre de paix au milieu du désert."</p>
+          <div class="avis-author-row">
+            <div class="avis-avatar">R</div>
+            <div class="avis-author-info"><strong>Ryad B.</strong><span>Voyageur</span></div>
+          </div>
+        </div>
+
+        <div class="avis-card">
+          <div class="avis-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="avis-text">"Quatre jours inoubliables... on se sentait dans un autre monde. L'hospitalité algérienne à son meilleur niveau."</p>
+          <div class="avis-author-row">
+            <div class="avis-avatar">E</div>
+            <div class="avis-author-info"><strong>Eleonora C.</strong><span>Voyageuse internationale</span></div>
+          </div>
+        </div>
+
+        <div class="avis-card">
+          <div class="avis-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="avis-text">"Personnel remarquablement gentil, calme parfait pour se ressourcer. L'architecture néo-soudanaise est sublime."</p>
+          <div class="avis-author-row">
+            <div class="avis-avatar">F</div>
+            <div class="avis-author-info"><strong>Farah A.</strong><span>Voyageuse</span></div>
+          </div>
+        </div>
+
+        <div class="avis-card">
+          <div class="avis-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="avis-text">"Merci pour l'hospitalité exceptionnelle et ces moments inoubliables. On reviendra, c'est certain."</p>
+          <div class="avis-author-row">
+            <div class="avis-avatar">R</div>
+            <div class="avis-author-info"><strong>Ryma O.</strong><span>Voyageuse</span></div>
+          </div>
+        </div>
+
+        <div class="avis-card">
+          <div class="avis-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="avis-text">"Professionnalisme remarquable et générosité rare. Une adresse incontournable à Timimoun."</p>
+          <div class="avis-author-row">
+            <div class="avis-avatar">M</div>
+            <div class="avis-author-info"><strong>Mohamed R.</strong><span>Voyageur</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="lp-badge reveal">
+        <div class="lp-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span>Recommandé par <strong>Lonely Planet</strong></span>
+        </div>
+        <div class="lp-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span><strong>4.8/5</strong> Dar El Hakim — 203 avis</span>
+        </div>
+        <div class="lp-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span><strong>4.8/5</strong> Dar El Wafi — 88 avis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-cta" id="contact">
+    <div class="cta-content reveal">
+      <h2>Prêt à vivre <em>l'expérience</em> ?</h2>
+      <p>Contactez-nous directement sur WhatsApp pour planifier votre séjour inoubliable au cœur du Sahara algérien.</p>
+      <a href="https://wa.me/213676088160?text=Bonjour%20Wafi%20Company%2C%20je%20souhaite%20des%20informations%20sur%20vos%20h%C3%A9bergements.%20Merci%20!" class="btn-wa-big" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.61l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.4 0-4.616-.83-6.365-2.218l-.446-.361-3.026 1.014 1.014-3.026-.361-.446A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Discuter sur WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand-col">
+        <img src="logo.jpg" alt="Dar El Wafi">
+        <h4>Wafi Company</h4>
+        <p>Hospitalité authentique et familiale au cœur du Sahara algérien depuis Timimoun, Gourara.</p>
+      </div>
+      <div>
+        <h4>Hébergements</h4>
+        <ul>
+          <li><a href="#hebergements">Dar El Hakim</a></li>
+          <li><a href="#hebergements">Dar El Wafi</a></li>
+          <li><a href="#hebergements">Dar Tin Hinan</a></li>
+          <li><a href="#hebergements">Wafi Bivouac</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Restaurants</h4>
+        <ul>
+          <li><a href="#restaurants">Restauration Traditionnelle</a></li>
+          <li><a href="#restaurants">La Table de Nadia</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+213676088160">+213 676 088 160</a></li>
+          <li><a href="mailto:contact@waficompany.com">contact@waficompany.com</a></li>
+          <li><a href="https://wa.me/213676088160" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="#">Kouba, Timimoun 10001</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Wafi Company &copy; 2026. Tous droits réservés.</p>
+      <p>Conçu avec soin par <a href="#">Webminds Digital Solutions</a></p>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/213676088160?text=Bonjour%20Wafi%20Company%20!" class="float-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.61l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.4 0-4.616-.83-6.365-2.218l-.446-.361-3.026 1.014 1.014-3.026-.361-.446A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+  </a>
+
+  <script>
+    // === NAVBAR SCROLL ===
+    const navbar = document.getElementById('navbar');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 80);
+    }, { passive: true });
+
+    // === MOBILE MENU ===
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // === HERO SLIDER ===
+    const slideData = [
+      { eyebrow: 'Hébergement de charme', title: 'Dar El <em>Hakim</em>', subtitle: 'Tradition, authenticité, confort et bien-être au cœur de Timimoun.' },
+      { eyebrow: 'Architecture néo-soudanaise', title: 'Dar El <em>Wafi</em>', subtitle: 'Vous y serez comme chez vous, au cœur du Sahara algérien.' },
+      { eyebrow: "L'oasis rouge", title: 'Dar Tin <em>Hinan</em>', subtitle: "Le petit ksar de l'oasis rouge, hommage à la Reine des Touaregs." },
+      { eyebrow: 'Nuits étoilées', title: 'Wafi <em>Bivouac</em>', subtitle: 'Nuits sous un ciel étoilé au cœur du ksar de Lichta.' }
+    ];
+
+    const slides = document.querySelectorAll('.hero-slide');
+    const heroEyebrow = document.getElementById('heroEyebrow');
+    const heroTitle = document.getElementById('heroTitle');
+    const heroSubtitle = document.getElementById('heroSubtitle');
+    const heroContent = document.getElementById('heroContent');
+    const slideNum = document.getElementById('slideNum');
+    const slideProgress = document.getElementById('slideProgress');
+    let current = 0;
+    let autoTimer;
+    let paused = false;
+
+    function goToSlide(index) {
+      slides[current].classList.remove('active');
+      // Reset the bg scale for ken burns
+      slides[current].querySelector('.hero-slide-bg').style.transform = 'scale(1)';
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('active');
+
+      // Animate content
+      heroContent.style.opacity = '0';
+      heroContent.style.transform = 'translateY(20px)';
+      setTimeout(() => {
+        heroEyebrow.textContent = slideData[current].eyebrow;
+        heroTitle.innerHTML = slideData[current].title;
+        heroSubtitle.textContent = slideData[current].subtitle;
+        slideNum.textContent = String(current + 1).padStart(2, '0');
+        slideProgress.style.width = `${(current + 1) * 25}%`;
+        heroContent.style.opacity = '1';
+        heroContent.style.transform = 'translateY(0)';
+      }, 300);
+    }
+
+    heroContent.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+
+    function startAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => { if (!paused) goToSlide(current + 1); }, 6000);
+    }
+
+    document.getElementById('nextSlide').addEventListener('click', () => { goToSlide(current + 1); startAuto(); });
+    document.getElementById('prevSlide').addEventListener('click', () => { goToSlide(current - 1); startAuto(); });
+
+    const hero = document.getElementById('hero');
+    hero.addEventListener('mouseenter', () => { paused = true; });
+    hero.addEventListener('mouseleave', () => { paused = false; });
+
+    startAuto();
+
+    // === SCROLL REVEAL ===
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+  </script>
+
+</body>
+</html>
